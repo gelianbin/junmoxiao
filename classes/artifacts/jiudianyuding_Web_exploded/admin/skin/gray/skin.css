@@ -1,0 +1,38 @@
+#Sellerber .Sellerber_header{ background-color:#41a2ff}
+.menuUl li.open{ background-color:#41a2ff; border-bottom:1px solid #41a2ff; border-top:1px solid #41a2ff}
+.menuUl li.open a ,.menuUl li.open  a .arrow {background-color:#41a2ff;color: #ffffff;}
+.menuUl .submenu li.active ,
+.menuUl .submenu li.active a [class*="fa-"]:first-child { color:#41a2ff}
+.menuUl li.active>a:after {
+	 display: block;
+    content: "";
+    position: absolute!important;
+    right: 0;
+    top: 4px;
+    border: 8px solid transparent;
+    border-width: 14px 10px;
+	border-right-color: #41a2ff;
+}
+.menuUl .submenu li:before { border-top: 1px dotted #41a2ff;}
+.menuUl .submenu:before {border-right: 1px dotted #ffffff;}
+#Sellerber .Sellerber_bottom{ background-color:#41a2ff; color:#FFF}
+.Columns_top .administrator,
+.Columns_top .news{ background-color:#7DB0CE;}
+.breadcrumbs{background-color:#ffffff}
+.breadcrumbs .btn-default:hover{ background-color:#41a2ff; color:#FFF}
+.breadcrumbs .btn-default:hover i{ color:#FFF}
+.menuUl .submenu.Border_line{ border-right:3px solid #41a2ff;border-top:0px; }
+#breadcrumbs .breadcrumb li.active{ background-color:#ffffff;border-bottom:1px solid #ffffff; border-top:2px solid #41a2ff}
+#menu_style .menuUl .submenu>a, .menuUl li a {color: #41a2ff;}
+.Columns_top .administrator, .Columns_top .news {background-color: #2375c3;}
+.fa{ color: #41a2ff}
+.menuUl li.open a .fa, 
+.menuUl li.open  a .arrow,
+.menuUl li.open  a span,
+.Columns_top .administrator >.glyph-icon{ color: #ffffff}
+.switch_style{border-bottom: 1px solid #dddddd;}
+.menuUl .submenu li a>[class*="fa-"]:first-child{background:#41a2ff }
+.menuUl .submenu li:first-child>a{border-top: 1px solid #ffffff!important}
+.menuUl .submenu li:before{border-top: 1px dotted #ffffff}
+.Columns_top .news:hover { background-color: #ff5757!important;}
+.skin_select>.dropdown-menu{border-bottom: 1px solid #dddddd}

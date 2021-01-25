@@ -1,0 +1,174 @@
+ var template = '<dl class="nav nav-list" id="menu_list"></dl>'; 
+		   var methods = {
+	           //初始化
+			   
+			  init:function () {
+				   frame.find('.column_list').html(template); 
+			  }, 
+			//获取所有选项卡
+			getTabList:function(){
+				var tablist = [];
+				frame.find('.nav-list dt ').each(function(){
+					tablist.push({id:$(this).attr('id')});
+				});
+				return tablist;
+			},
+			   //获得等级
+			   	getTabListpid:function(){
+				var tablists = [];
+				frame.find('.nav-list dd ').each(function(){
+					tablists.push({pid:$(this).attr('id')});
+				});
+				return tablists;
+			}, 
+				//添加一个选项卡	   
+		    	addTab:function(options){
+				// $(".nav-list dt").each(function(i){				 
+				  if(options.id===options.pid){
+					 var tab = [];
+					tab.push('<dt class="nav_link shop_index" data-id="'+options.id+'" id="'+options.id+'">');
+					tab.push(' <a href="javascript:void(0)" class="dropdown-toggle title_nav">');
+					tab.push('<i class="'+options.icon+'"></i>');
+					tab.push('<span class="menu-text">'+options.title+'</span>');
+					tab.push('<b class="arrow fa fa-angle-down"></b>');
+					tab.push('</a>');
+					tab.push('</dt>');
+					frame.find('.nav-list').append(tab.join('')); 		
+				    }
+					//if(options.pid){
+					var tabContent = [];	
+					tabContent.push('<dd class="submenu" id="'+options.pid+'" data-id="'+options.pid+'"><ul>');
+					tabContent.push('<li class="home">');
+					tabContent.push('<a href="javascript:void(0)" name="'+options.url+'" title="'+options.name+'" class="iframeurl"><i class="fa fa-angle-double-right"></i>'+options.name+'</a>');
+					tabContent.push(options.content);
+					tabContent.push('</li>');
+					tabContent.push('</ul></dd>');
+					frame.find(".nav-list").append(tabContent.join(''));
+					//frame.find(".nav-list  dd li").append(tabContent.join(''));
+			  // }
+					$.fold(".list_content .nav-list dt.nav_link",".list_content .nav-list dd","fast",1,"click"); 
+					return methods;
+				},
+			};
+			var tablist = methods.getTabList();   //获取id
+			var tablists = methods.getTabListpid();//获取pid
+		    frame.html=treeHtml(tablist,1);
+		    function treeHtml(tablist, fileId) {
+			var _html = '';
+			var hideChild = fileId > 0 ? 'none' : '';
+			_html += '<ul class="'+hideChild+'">';
+		    }
+			methods.init();
+、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、
+     <!-- <dl class="nav nav-list" id="menu_list">
+     <dt class="shop_index nav_link " >
+     <a href="javascript:void(0)" class="iframeurl" title=""><i class="fa fa-home"></i><span class="menu-text">系统首页</span><b class="arrow fa fa-angle-down"></b></a></dt>
+     <dd class="submenu">
+     	 <ul>
+         <li class="home"><a href="javascript:void(0)" name="home.html" title="地图首页" class="iframeurl"><i class="fa fa-angle-double-right"></i>地图首页</a></li>
+         <li class="home"><a href="javascript:void(0)" name="index.html" title="商城管理" class="iframeurl"><i class="fa fa-angle-double-right"></i>商城管理</a></li>
+         </ul>
+     	
+     </dd>
+     <dt class="nav_link ">
+     <a href="javascript:void(0)" class="dropdown-toggle title_nav"><i class="fa fa-desktop"></i><span class="menu-text"> 商品管理 </span><b class="arrow fa fa-angle-down"></b></a>
+     </dt>
+     <dd class="submenu">
+       <ul>
+         <li class="home"><a href="javascript:void(0)" name="Products.html" title="产品类表" class="iframeurl"><i class="fa fa-angle-double-right"></i>产品管理</a></li>
+         <li class="home"><a href="javascript:void(0)" name="Brand_Manage.html" title="品牌管理" class="iframeurl"><i class="fa fa-angle-double-right"></i>品牌管理</a></li>
+         <li class="home"><a href="javascript:void(0)" name="Category_Manage.html" title="分类管理" class="iframeurl"><i class="fa fa-angle-double-right"></i>分类管理</a></li>
+         </ul>
+         </dd>
+  <dt class="nav_link"><a href="#" class="dropdown-toggle title_nav"><i class="fa fa-database"></i><span class="menu-text"> 订单管理 </span><b class="arrow fa fa-angle-down"></b></a></dt>
+    <dd class="submenu">
+     <ul>
+       <li class="home"><a href="javascript:void(0)" name="Order.html" title="订单类表" class="iframeurl"><i class="fa fa-angle-double-right"></i>订单类表</a></li>
+       <li class="home"><a href="javascript:void(0)" name="Brand_Manage.html" title="品牌管理" class="iframeurl"><i class="fa fa-angle-double-right"></i>订单处理</a></li>
+       <li class="home"><a href="javascript:void(0)" name="Order_Logistics.html" title="物流管理" class="iframeurl"><i class="fa fa-angle-double-right"></i>物流管理</a></li>
+        <li class="home"><a href="javascript:void(0)" name="Category_Manage.html" title="分类管理" class="iframeurl"><i class="fa fa-angle-double-right"></i>退款操作</a></li>
+       </ul>
+      </dd>
+       <dt class="nav_link"><a href="#" class="dropdown-toggle title_nav"><i class="fa fa-credit-card"></i><span class="menu-text"> 支付管理 </span><b class="arrow fa fa-angle-down"></b></a></dt>
+    <dd class="submenu">
+     <ul>
+       <li class="home"><a href="javascript:void(0)" name="Cover_management.html" title="账号管理" class="iframeurl"><i class="fa fa-angle-double-right"></i>账号管理</a></li>
+       <li class="home"><a href="javascript:void(0)" name="payment_method.html" title="支付管理" class="iframeurl"><i class="fa fa-angle-double-right"></i>支付管理</a></li>
+       <li class="home"><a href="javascript:void(0)" name="Payment_Configure.html" title="支付配置" class="iframeurl"><i class="fa fa-angle-double-right"></i>支付配置</a></li>
+       </ul>
+      </dd>
+      <dt class="nav_link"><a href="#" class="dropdown-toggle title_nav"><i class="fa  fa-th-list"></i><span class="menu-text"> 店铺管理 </span><b class="arrow fa fa-angle-down"></b></a></dt>
+    <dd class="submenu">
+     <ul>
+       <li class="home"><a href="javascript:void(0)" name="Products_List.html" title="产品类表" class="iframeurl"><i class="fa fa-angle-double-right"></i>店铺列表</a></li>
+       <li class="home"><a href="javascript:void(0)" name="Brand_Manage.html" title="品牌管理" class="iframeurl"><i class="fa fa-angle-double-right"></i>店铺审核</a></li>
+       <li class="home"><a href="javascript:void(0)" name="Category_Manage.html" title="分类管理" class="iframeurl"><i class="fa fa-angle-double-right"></i>店铺分类</a></li>
+       </ul>
+      </dd>
+      <dt class="nav_link"><a href="#" class="dropdown-toggle title_nav"><i class="fa  fa-file-photo-o"></i><span class="menu-text"> 广告管理 </span><b class="arrow fa fa-angle-down"></b></a></dt>
+    <dd class="submenu">
+     <ul>
+       <li class="home"><a href="javascript:void(0)" name="Advertising_list.html" title="广告列表" class="iframeurl"><i class="fa fa-angle-double-right"></i>广告列表</a></li>
+       <li class="home"><a href="javascript:void(0)" name="Advertising_sort.html" title="分类管理" class="iframeurl"><i class="fa fa-angle-double-right"></i>分类管理</a></li>
+       <li class="home"><a href="javascript:void(0)" name="Category_Manage.html" title="分类管理" class="iframeurl"><i class="fa fa-angle-double-right"></i>分类管理</a></li>
+       </ul>
+      </dd>
+  <dt class="nav_link"><a href="#" class="dropdown-toggle title_nav"><i class="fa fa-bar-chart"></i><span class="menu-text"> 报表管理 </span><b class="arrow fa fa-angle-down"></b></a></dt>
+    <dd class="submenu">
+     <ul>
+       <li class="home"><a href="javascript:void(0)" name="system_info.html" title="订单报表" class="iframeurl"><i class="fa fa-angle-double-right"></i>订单报表</a></li>
+       <li class="home"><a href="javascript:void(0)" name="Columns.html" title="产品销量" class="iframeurl"><i class="fa fa-angle-double-right"></i>产品销量</a></li>
+       <li class="home"><a href="javascript:void(0)" name="Category_Manage.html" title="分类管理" class="iframeurl"><i class="fa fa-angle-double-right"></i>交易量</a></li>
+       </ul>
+      </dd>
+        <dt class="nav_link"><a href="#" class="dropdown-toggle title_nav"><i class="fa fa-user"></i><span class="menu-text"> 会员管理 </span><b class="arrow fa fa-angle-down"></b></a></dt>
+    <dd class="submenu">
+     <ul>
+       <li class="home"><a href="javascript:void(0)" name="member_list.html" title="会员列表" class="iframeurl"><i class="fa fa-angle-double-right"></i>会员列表</a></li>
+       <li class="home"><a href="javascript:void(0)" name="Columns.html" title="等级管理" class="iframeurl"><i class="fa fa-angle-double-right"></i>等级管理</a></li>
+       <li class="home"><a href="javascript:void(0)" name="Category_Manage.html" title="会员记录" class="iframeurl"><i class="fa fa-angle-double-right"></i>会员记录</a></li>
+       </ul>
+      </dd>
+      <dt class="nav_link"><a href="#" class="dropdown-toggle title_nav"><i class="fa fa-cogs"></i><span class="menu-text"> 系统管理 </span><b class="arrow fa fa-angle-down"></b></a></dt>
+    <dd class="submenu">
+     <ul>
+       <li class="home"><a href="javascript:void(0)" name="system_info.html" title="系统信息" class="iframeurl"><i class="fa fa-angle-double-right"></i>系统信息</a></li>
+       <li class="home"><a href="javascript:void(0)" name="Columns.html" title="自定义导航栏" class="iframeurl"><i class="fa fa-angle-double-right"></i>自定义导航栏</a></li>
+       <li class="home"><a href="javascript:void(0)" name="Category_Manage.html" title="分类管理" class="iframeurl"><i class="fa fa-angle-double-right"></i>日志操作</a></li>
+       </ul>
+      </dd>
+       <dt class="nav_link"><a href="#" class="dropdown-toggle title_nav"><i class="fa fa-file-text-o"></i><span class="menu-text"> 文章管理 </span><b class="arrow fa fa-angle-down"></b></a></dt>
+    <dd class="submenu">
+     <ul>
+       <li class="home"><a href="javascript:void(0)" name="Article_list.html" title="文章列表" class="iframeurl"><i class="fa fa-angle-double-rightt"></i>文章列表</a></li>
+       </ul>
+      </dd>
+       <dt class="nav_link"><a href="#" class="dropdown-toggle title_nav"><i class="fa  fa-hdd-o "></i><span class="menu-text"> OTA管理 </span><b class="arrow fa fa-angle-down"></b></a></dt>
+    <dd class="submenu">
+     <ul>
+       <li class="home"><a href="javascript:void(0)" name="Article_list.html" title="文章列表" class="iframeurl"><i class="fa fa-angle-double-rightt"></i>门票列表</a></li>
+       <li class="home"><a href="javascript:void(0)" name="Article_list.html" title="文章列表" class="iframeurl"><i class="fa fa-angle-double-rightt"></i>门票设置</a></li>
+       </ul>
+      </dd>
+        <dt class="nav_link"><a href="#" class="dropdown-toggle title_nav"><i class="fa fa-file-text-o"></i><span class="menu-text">单页面管理 </span><b class="arrow fa fa-angle-down"></b></a></dt>
+     <dd class="submenu">
+       <ul>
+       <li class="home"><a href="javascript:void(0)" name="page_list.html" title="页面列表" class="iframeurl"><i class="fa fa-angle-double-right"></i>页面列表</a></li>
+       </ul>
+      </dd>
+       <dt class="nav_link"><a href="#" class="dropdown-toggle title_nav"><i class="fa fa-users"></i><span class="menu-text">管理员管理 </span><b class="arrow fa fa-angle-down"></b></a></dt>
+    <dd class="submenu">
+     <ul>
+       <li class="home"><a href="javascript:void(0)" name="admin_Competence.html" title="权限设置" class="iframeurl"><i class="fa fa-angle-double-right"></i>权限设置</a></li>
+       <li class="home"><a href="javascript:void(0)" name="administrator_list.html" title="管理员列表" class="iframeurl"><i class="fa fa-angle-double-right"></i>管理员列表</a></li>
+       <li class="home"><a href="javascript:void(0)" name="Personal_info.htm" title="个人信息" class="iframeurl"><i class="fa fa-angle-double-right"></i>个人信息</a></li>
+       </ul>
+      </dd>
+       <dt class="nav_link"><a href="#" class="dropdown-toggle title_nav"><i class="fa fa-wrench"></i><span class="menu-text">界面工具</span><b class="arrow fa fa-angle-down"></b></a></dt>
+    <dd class="submenu">
+     <ul>
+       <li class="home"><a href="javascript:void(0)" name="interface.html" title="界面模板" class="iframeurl"><i class="fa fa-angle-double-right"></i>界面模板</a></li>
+       <li class="home"><a href="javascript:void(0)" name="form_builder.html" title="表单构建器" class="iframeurl"><i class="fa fa-angle-double-right"></i>表单构建器</a></li>
+       </ul>
+      </dd>
+    </dl> -->	        

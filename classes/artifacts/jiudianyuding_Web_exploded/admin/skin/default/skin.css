@@ -1,0 +1,44 @@
+#Sellerber .Sellerber_header{ background-color:#000000}
+.nav-list>dt.open{ background-color:#000000; border-bottom:1px solid #000000; border-top:1px solid #000000}
+.nav-list>dt.open>a ,.nav-list>dt.open > a >.arrow {background-color:#000000;color: #ffffff;}
+.nav-list .submenu li.active ,
+.nav-list .submenu li.active a [class*="fa-"]:first-child { color:#000000}
+.nav-list li.active>a:after {
+	 display: block;
+    content: "";
+    position: absolute!important;
+    right: 0;
+    top: 4px;
+    border: 8px solid transparent;
+    border-width: 14px 10px;
+	border-right-color: #000000;	
+}
+.nav-list .submenu li:before { border-top: 1px dotted #000000;}
+.switch_menu .menuUl>li.open>a.menuUl_title,
+.switch_menu .menuUl>a.menuUl_title.open a{ background:#666666!important;}
+#Sellerber .Sellerber_bottom{ background-color:#000; color:#FFF; border-top: 0px!important;}
+.Columns_top .administrator,
+.Columns_top .news{ background-color:#666;}
+.breadcrumbs{background-color:#666666 }
+.breadcrumbs .btn-default:hover{ background-color:#000000; color:#FFF}
+.breadcrumbs .btn-default:hover i{ color:#FFF}
+#breadcrumbs .nav-list .submenu.Border_line{ border-right:3px solid #000000;border-top:0px; }
+#breadcrumbs .breadcrumb li.active{ background-color:#ffffff;border-bottom:1px solid #ffffff; border-top:2px solid #000000}
+#menu_style .menuUl>a.menuUl_title, .menuUl>.submenu>a {color: #000000;}
+#Sellerber .list_content { position: relative;background: #000000}
+.breadcrumbs .tabClose{color: #ffffff}
+.menu_style{border-right: 0px !important;}
+.menuUl li,
+.skin_select>.dropdown-menu{border-bottom: 1px solid #3E3E3E!important;}
+.menuUl .submenu li a>[class*="fa-"]:first-child{background-color: #666666!important}
+.menuUl .submenu li>a{color: #DBDBDB!important}
+.menuUl .submenu{background-color: #666666!important;}
+.menuUl li a.menuUl_title{background-color: #000000!important; color: #ADADAD!important}
+.menuUl li.open{ border-bottom: 0px!important;}
+.menuUl li .submenu a.menuUl_title{background-color: #666666!important;}
+.menuUl li .submenu li{ border: 0px!important;}
+.menuUl li.open a.menuUl_title{color: #ffffff!important}
+.menuUl .submenu:before {border-right: 1px dotted #ffffff;}
+.menuUl  .submenu li:before { border-top: 1px dotted #ffffff;}
+.nav-list .submenu li:first-child>a {border-top: 1px solid #1C1C1C!important;}
+.menuUl .submenu li a>[class*="fa-"]:first-child{color: #ffffff}

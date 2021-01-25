@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.HouseMapper">
+  <resultMap id="BaseResultMap" type="com.entity.House">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="bid" jdbcType="INTEGER" property="bid" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="cnum" jdbcType="VARCHAR" property="cnum" />
+    <result column="img" jdbcType="VARCHAR" property="img" />
+    <result column="pubtime" jdbcType="VARCHAR" property="pubtime" />
+    <result column="isdel" jdbcType="VARCHAR" property="isdel" />
+    <result column="unum" jdbcType="VARCHAR" property="unum" />
+    <result column="addr2" jdbcType="VARCHAR" property="addr2" />
+    <result column="addr" jdbcType="VARCHAR" property="addr" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="bprice" jdbcType="DOUBLE" property="bprice" />
+    <result column="jianjie" jdbcType="VARCHAR" property="jianjie" />
+    <result column="img1" jdbcType="VARCHAR" property="img1" />
+    <result column="img2" jdbcType="VARCHAR" property="img2" />
+    <result column="img3" jdbcType="VARCHAR" property="img3" />
+    <result column="img4" jdbcType="VARCHAR" property="img4" />
+    <result column="scope" jdbcType="VARCHAR" property="scope" />
+    <result column="onum" jdbcType="INTEGER" property="onum" />
+    <result column="fjnum" jdbcType="INTEGER" property="fjnum" />
+    <result column="wsjtype" jdbcType="VARCHAR" property="wsjtype" />
+    <result column="shstatus" jdbcType="VARCHAR" property="shstatus" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.entity.House">
+    <result column="note" jdbcType="LONGVARCHAR" property="note" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, bid, uid, cnum, img, pubtime, isdel, unum, addr2, addr, price, area, status, 
+    bprice, jianjie, img1, img2, img3, img4, scope, onum, fjnum, wsjtype, shstatus
+  </sql>
+  <sql id="Blob_Column_List">
+    note
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from house
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from house
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.entity.House">
+    insert into house (id, name, bid, 
+      uid, cnum, img, pubtime, 
+      isdel, unum, addr2, 
+      addr, price, area, status, 
+      bprice, jianjie, img1, 
+      img2, img3, img4, scope, 
+      onum, fjnum, wsjtype, 
+      shstatus, note)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{bid,jdbcType=INTEGER}, 
+      #{uid,jdbcType=INTEGER}, #{cnum,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, #{pubtime,jdbcType=VARCHAR}, 
+      #{isdel,jdbcType=VARCHAR}, #{unum,jdbcType=VARCHAR}, #{addr2,jdbcType=VARCHAR}, 
+      #{addr,jdbcType=VARCHAR}, #{price,jdbcType=DOUBLE}, #{area,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{bprice,jdbcType=DOUBLE}, #{jianjie,jdbcType=VARCHAR}, #{img1,jdbcType=VARCHAR}, 
+      #{img2,jdbcType=VARCHAR}, #{img3,jdbcType=VARCHAR}, #{img4,jdbcType=VARCHAR}, #{scope,jdbcType=VARCHAR}, 
+      #{onum,jdbcType=INTEGER}, #{fjnum,jdbcType=INTEGER}, #{wsjtype,jdbcType=VARCHAR}, 
+      #{shstatus,jdbcType=VARCHAR}, #{note,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.entity.House">
+    insert into house
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="bid != null">
+        bid,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="cnum != null">
+        cnum,
+      </if>
+      <if test="img != null">
+        img,
+      </if>
+      <if test="pubtime != null">
+        pubtime,
+      </if>
+      <if test="isdel != null">
+        isdel,
+      </if>
+      <if test="unum != null">
+        unum,
+      </if>
+      <if test="addr2 != null">
+        addr2,
+      </if>
+      <if test="addr != null">
+        addr,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="area != null">
+        area,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="bprice != null">
+        bprice,
+      </if>
+      <if test="jianjie != null">
+        jianjie,
+      </if>
+      <if test="img1 != null">
+        img1,
+      </if>
+      <if test="img2 != null">
+        img2,
+      </if>
+      <if test="img3 != null">
+        img3,
+      </if>
+      <if test="img4 != null">
+        img4,
+      </if>
+      <if test="scope != null">
+        scope,
+      </if>
+      <if test="onum != null">
+        onum,
+      </if>
+      <if test="fjnum != null">
+        fjnum,
+      </if>
+      <if test="wsjtype != null">
+        wsjtype,
+      </if>
+      <if test="shstatus != null">
+        shstatus,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="bid != null">
+        #{bid,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="cnum != null">
+        #{cnum,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null">
+        #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="pubtime != null">
+        #{pubtime,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        #{isdel,jdbcType=VARCHAR},
+      </if>
+      <if test="unum != null">
+        #{unum,jdbcType=VARCHAR},
+      </if>
+      <if test="addr2 != null">
+        #{addr2,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null">
+        #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="bprice != null">
+        #{bprice,jdbcType=DOUBLE},
+      </if>
+      <if test="jianjie != null">
+        #{jianjie,jdbcType=VARCHAR},
+      </if>
+      <if test="img1 != null">
+        #{img1,jdbcType=VARCHAR},
+      </if>
+      <if test="img2 != null">
+        #{img2,jdbcType=VARCHAR},
+      </if>
+      <if test="img3 != null">
+        #{img3,jdbcType=VARCHAR},
+      </if>
+      <if test="img4 != null">
+        #{img4,jdbcType=VARCHAR},
+      </if>
+      <if test="scope != null">
+        #{scope,jdbcType=VARCHAR},
+      </if>
+      <if test="onum != null">
+        #{onum,jdbcType=INTEGER},
+      </if>
+      <if test="fjnum != null">
+        #{fjnum,jdbcType=INTEGER},
+      </if>
+      <if test="wsjtype != null">
+        #{wsjtype,jdbcType=VARCHAR},
+      </if>
+      <if test="shstatus != null">
+        #{shstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.entity.House">
+    update house
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="bid != null">
+        bid = #{bid,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="cnum != null">
+        cnum = #{cnum,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null">
+        img = #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="pubtime != null">
+        pubtime = #{pubtime,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        isdel = #{isdel,jdbcType=VARCHAR},
+      </if>
+      <if test="unum != null">
+        unum = #{unum,jdbcType=VARCHAR},
+      </if>
+      <if test="addr2 != null">
+        addr2 = #{addr2,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null">
+        addr = #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="area != null">
+        area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="bprice != null">
+        bprice = #{bprice,jdbcType=DOUBLE},
+      </if>
+      <if test="jianjie != null">
+        jianjie = #{jianjie,jdbcType=VARCHAR},
+      </if>
+      <if test="img1 != null">
+        img1 = #{img1,jdbcType=VARCHAR},
+      </if>
+      <if test="img2 != null">
+        img2 = #{img2,jdbcType=VARCHAR},
+      </if>
+      <if test="img3 != null">
+        img3 = #{img3,jdbcType=VARCHAR},
+      </if>
+      <if test="img4 != null">
+        img4 = #{img4,jdbcType=VARCHAR},
+      </if>
+      <if test="scope != null">
+        scope = #{scope,jdbcType=VARCHAR},
+      </if>
+      <if test="onum != null">
+        onum = #{onum,jdbcType=INTEGER},
+      </if>
+      <if test="fjnum != null">
+        fjnum = #{fjnum,jdbcType=INTEGER},
+      </if>
+      <if test="wsjtype != null">
+        wsjtype = #{wsjtype,jdbcType=VARCHAR},
+      </if>
+      <if test="shstatus != null">
+        shstatus = #{shstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        note = #{note,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.entity.House">
+    update house
+    set name = #{name,jdbcType=VARCHAR},
+      bid = #{bid,jdbcType=INTEGER},
+      uid = #{uid,jdbcType=INTEGER},
+      cnum = #{cnum,jdbcType=VARCHAR},
+      img = #{img,jdbcType=VARCHAR},
+      pubtime = #{pubtime,jdbcType=VARCHAR},
+      isdel = #{isdel,jdbcType=VARCHAR},
+      unum = #{unum,jdbcType=VARCHAR},
+      addr2 = #{addr2,jdbcType=VARCHAR},
+      addr = #{addr,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DOUBLE},
+      area = #{area,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      bprice = #{bprice,jdbcType=DOUBLE},
+      jianjie = #{jianjie,jdbcType=VARCHAR},
+      img1 = #{img1,jdbcType=VARCHAR},
+      img2 = #{img2,jdbcType=VARCHAR},
+      img3 = #{img3,jdbcType=VARCHAR},
+      img4 = #{img4,jdbcType=VARCHAR},
+      scope = #{scope,jdbcType=VARCHAR},
+      onum = #{onum,jdbcType=INTEGER},
+      fjnum = #{fjnum,jdbcType=INTEGER},
+      wsjtype = #{wsjtype,jdbcType=VARCHAR},
+      shstatus = #{shstatus,jdbcType=VARCHAR},
+      note = #{note,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.entity.House">
+    update house
+    set name = #{name,jdbcType=VARCHAR},
+      bid = #{bid,jdbcType=INTEGER},
+      uid = #{uid,jdbcType=INTEGER},
+      cnum = #{cnum,jdbcType=VARCHAR},
+      img = #{img,jdbcType=VARCHAR},
+      pubtime = #{pubtime,jdbcType=VARCHAR},
+      isdel = #{isdel,jdbcType=VARCHAR},
+      unum = #{unum,jdbcType=VARCHAR},
+      addr2 = #{addr2,jdbcType=VARCHAR},
+      addr = #{addr,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DOUBLE},
+      area = #{area,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      bprice = #{bprice,jdbcType=DOUBLE},
+      jianjie = #{jianjie,jdbcType=VARCHAR},
+      img1 = #{img1,jdbcType=VARCHAR},
+      img2 = #{img2,jdbcType=VARCHAR},
+      img3 = #{img3,jdbcType=VARCHAR},
+      img4 = #{img4,jdbcType=VARCHAR},
+      scope = #{scope,jdbcType=VARCHAR},
+      onum = #{onum,jdbcType=INTEGER},
+      fjnum = #{fjnum,jdbcType=INTEGER},
+      wsjtype = #{wsjtype,jdbcType=VARCHAR},
+      shstatus = #{shstatus,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+ 
+   <select id="checkUname" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from house
+    where name = #{name,jdbcType=VARCHAR} and isdel="1"
+  </select>
+
+  <select id="getCount" parameterType="java.util.Map" resultType="int">
+    select  count(*) from house  where isdel="1"
+        <if test="name != null">
+       and name like concat('%',#{name,jdbcType=VARCHAR},'%')
+      </if>
+      <if test="bid != null">
+       and bid = #{bid,jdbcType=INTEGER}
+      </if>
+      <if test="uid != null">
+       and uid = #{uid,jdbcType=INTEGER}
+      </if>
+      <if test="cnum != null">
+       and cnum = #{cnum,jdbcType=VARCHAR}
+      </if>
+      <if test="unum != null">
+       and unum = #{unum,jdbcType=VARCHAR}
+      </if>
+      <if test="addr != null">
+       and addr = #{addr,jdbcType=VARCHAR}
+      </if>
+      <if test="addr2 != null">
+       and addr2 like concat('%',#{addr2,jdbcType=VARCHAR},'%')
+      </if>
+      <if test="area != null">
+       and area = #{area,jdbcType=VARCHAR}
+      </if>
+      <if test="status != null">
+       and status like concat('%',#{status,jdbcType=VARCHAR},'%') 
+      </if>
+      <if test="yid != null">
+       and yid = #{yid,jdbcType=INTEGER}
+      </if>
+      <if test="pubtime != null">
+       and pubtime = #{pubtime,jdbcType=VARCHAR}
+      </if>
+        <if test="shstatus != null">
+      and shstatus like concat('%',#{shstatus,jdbcType=VARCHAR},'%')  
+      </if>
+  </select> 
+
+    <select id="getAll" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select   
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+     from house  where isdel="1"
+       <if test="name != null">
+       and name like concat('%',#{name,jdbcType=VARCHAR},'%')
+      </if>
+      <if test="bid != null">
+       and bid = #{bid,jdbcType=INTEGER}
+      </if>
+      <if test="uid != null">
+       and uid = #{uid,jdbcType=INTEGER}
+      </if>
+      <if test="cnum != null">
+       and cnum = #{cnum,jdbcType=VARCHAR}
+      </if>
+      <if test="unum != null">
+       and unum = #{unum,jdbcType=VARCHAR}
+      </if>
+      <if test="addr != null">
+       and addr = #{addr,jdbcType=VARCHAR}
+      </if>
+      <if test="addr2 != null">
+       and addr2 like concat('%',#{addr2,jdbcType=VARCHAR},'%')
+      </if>
+      <if test="area != null">
+       and area = #{area,jdbcType=VARCHAR}
+      </if>
+      <if test="status != null">
+       and status like concat('%',#{status,jdbcType=VARCHAR},'%') 
+      </if>
+      <if test="yid != null">
+       and yid = #{yid,jdbcType=INTEGER}
+      </if>
+      <if test="pubtime != null">
+       and pubtime like concat(%,#{pubtime,jdbcType=VARCHAR},%) 
+      </if>
+        <if test="shstatus != null">
+      and shstatus like concat('%',#{shstatus,jdbcType=VARCHAR},'%')  
+      </if>
+    order by pubtime desc 
+  </select> 
+   <select id="getByPage" parameterType="java.util.Map" resultMap="BaseResultMap">
+     select  
+     <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" /> 
+    from house where  isdel="1"
+      <if test="name != null">
+       and name like concat('%',#{name,jdbcType=VARCHAR},'%')
+      </if>
+      <if test="bid != null">
+       and bid = #{bid,jdbcType=INTEGER}
+      </if>
+      <if test="uid != null">
+       and uid = #{uid,jdbcType=INTEGER}
+      </if>
+      <if test="cnum != null">
+       and cnum = #{cnum,jdbcType=VARCHAR}
+      </if>
+      <if test="unum != null">
+       and unum = #{unum,jdbcType=VARCHAR}
+      </if>
+      <if test="addr != null">
+       and addr = #{addr,jdbcType=VARCHAR}
+      </if>
+      <if test="addr2 != null">
+       and addr2 like concat('%',#{addr2,jdbcType=VARCHAR},'%')
+      </if>
+      <if test="area != null">
+       and area = #{area,jdbcType=VARCHAR}
+      </if>
+      <if test="status != null">
+       and status like concat('%',#{status,jdbcType=VARCHAR},'%') 
+      </if>
+      <if test="yid != null">
+       and yid = #{yid,jdbcType=INTEGER}
+      </if>
+      <if test="pubtime != null">
+       and pubtime like concat(%,#{pubtime,jdbcType=VARCHAR},%) 
+      </if>
+      <if test="shstatus != null">
+      and shstatus like concat('%',#{shstatus,jdbcType=VARCHAR},'%')  
+      </if>
+    order by pubtime desc 
+     <if test="pageno!=null and pageSize!=null">
+     limit #{pageno},#{pageSize}
+     </if>
+     </select>
+     
+     <select id="getByPage2" parameterType="java.util.Map" resultMap="BaseResultMap">
+     select  
+     <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" /> 
+    from house where  isdel="1"
+      <if test="name != null">
+       and name like concat('%',#{name,jdbcType=VARCHAR},'%')
+      </if>
+      <if test="bid != null">
+       and bid = #{bid,jdbcType=INTEGER}
+      </if>
+      <if test="uid != null">
+       and uid = #{uid,jdbcType=INTEGER}
+      </if>
+      <if test="cnum != null">
+       and cnum = #{cnum,jdbcType=VARCHAR}
+      </if>
+      <if test="unum != null">
+       and unum = #{unum,jdbcType=VARCHAR}
+      </if>
+      <if test="addr != null">
+       and addr = #{addr,jdbcType=VARCHAR}
+      </if>
+      <if test="addr2 != null">
+       and addr2 like concat('%',#{addr2,jdbcType=VARCHAR},'%')
+      </if>
+      <if test="area != null">
+       and area = #{area,jdbcType=VARCHAR}
+      </if>
+      <if test="status != null">
+       and status like concat('%',#{status,jdbcType=VARCHAR},'%') 
+      </if>
+      <if test="yid != null">
+       and yid = #{yid,jdbcType=INTEGER}
+      </if>
+      <if test="pubtime != null">
+       and pubtime like concat(%,#{pubtime,jdbcType=VARCHAR},%) 
+      </if>
+       <if test="shstatus != null">
+      and shstatus like concat('%',#{shstatus,jdbcType=VARCHAR},'%')  
+      </if>
+    order by onum desc 
+     <if test="pageno!=null and pageSize!=null">
+     limit #{pageno},#{pageSize}
+     </if>
+     </select>
+     
+       <select id="getTop10" parameterType="java.util.Map" resultMap="BaseResultMap">
+     select  
+     <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" /> 
+    from house where  1=1
+    <if test="shstatus != null">
+      and shstatus like concat('%',#{shstatus,jdbcType=VARCHAR},'%')  
+      </if>
+    order by onum desc 
+     limit 0,10 
+     </select>
+  
+</mapper>

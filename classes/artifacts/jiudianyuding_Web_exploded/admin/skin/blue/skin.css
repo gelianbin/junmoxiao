@@ -1,0 +1,58 @@
+#Sellerber .Sellerber_header{ background-color:#438EB9}
+
+#Sellerber .Sellerber_bottom,
+.switch_menu .menuUl .submenu{ background-color:#438EB9; color:#FFF}
+.Columns_top .administrator,
+.Columns_top .news{ background-color:#7DB0CE;}
+.breadcrumbs{background-color:#ffffff}
+.breadcrumbs .btn-default:hover{ background-color:#438EB9; color:#FFF}
+.breadcrumbs .btn-default:hover i{ color:#FFF}
+.menuUl .submenu.Border_line{ border-right:3px solid #438EB9;border-top:0px; }
+.switch_style{border-bottom: 1px solid #dddddd}
+#breadcrumbs .breadcrumb li.active{ background-color:#ffffff;border-bottom:1px solid #ffffff; border-top:2px solid #438EB9}
+.fa{ color: #438EB9}
+.menuUl li>a{color: #438EB9;}
+.Columns_top .administrator>.glyph-icon{ color: #ffffff}
+.Columns_top .administrator, .Columns_top .news {background-color: #145579;}
+.menuUl li.open a .fa,
+.menuUl li.open a span.menu-text,
+.menuUl li.open>a>.arrow{color: #ffffff}
+.menuUl .submenu li:first-child>a{border-top: 1px solid #ffffff!important;}
+.menuUl .submenu li a>[class*="fa-"]:first-child{background:#438EB9 }
+.menuUl .submenu li:before{border-top: 1px dotted #ffffff}
+.menuUl  li.open{ background-color:#438EB9; border-bottom:1px solid #438EB9; border-top:1px solid #438EB9}
+.menuUl  li.open>a ,#menu_style .menuUl li.open>a>.arrow {background-color:#438EB9;color: #ffffff;}
+.menuUl .submenu li.active ,
+.menuUl .submenu li.active a [class*="fa-"]:first-child { color:#438EB9}
+.menuUl li.active>a:after {
+	 display: block;
+    content: "";
+    position: absolute!important;
+    right: 0;
+    top: 4px;
+    border: 8px solid transparent;
+    border-width: 14px 10px;
+	border-right-color: #438EB9;
+}
+.menuUl .submenu li:before { border-top: 1px dotted #438EB9;}
+.menuUl .submenu:before {border-right: 1px dotted #ffffff;}
+.switch_style{border-bottom: 1px solid #dddddd;}
+.skin_select>.dropdown-menu{border-bottom: 1px solid #dddddd}
+/***************************/
+.menu_list li{border-bottom: 1px solid #dddddd; cursor: pointer; background:#f9f9f9 }
+.menu_list li .submenu li{background:#438EB9; border-bottom: 0px}
+.menu_list li.open>a:hover,
+.menu_list li .submenu li a:hover{background:inherit;color:#1963aa;	}
+.menu_list li>a:hover {background-color: #FFF;color: #1963aa;}
+.menu_list li>a:hover:before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: -1px;
+    bottom: 0;
+    left: 0;
+    width: 3px;
+    max-width: 3px;
+    overflow: hidden;
+    background-color: #3382af;
+}

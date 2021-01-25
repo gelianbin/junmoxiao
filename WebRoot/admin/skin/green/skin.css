@@ -1,0 +1,35 @@
+#Sellerber .Sellerber_header{ background-color:#72B63F}
+.menuUl li.open{ background-color:#72B63F; border-bottom:1px solid #72B63F; border-top:1px solid #72B63F}
+.menuUl li.open a ,.menuUl li.open  a .arrow {background-color:#72B63F;color: #ffffff;}
+.menuUl .submenu li.active ,
+.menuUl .submenu li.active a [class*="fa-"]:first-child { color:#438EB9}
+.menuUl li.active>a:after {
+	 display: block;
+    content: "";
+    position: absolute!important;
+    right: 0;
+    top: 4px;
+    border: 8px solid transparent;
+    border-width: 14px 10px;
+	border-right-color: #72B63F;
+}
+.menuUl .submenu li:before { border-top: 1px dotted #ffffff;}
+.menuUl .submenu:before {border-right: 1px dotted #ffffff;}
+#Sellerber .Sellerber_bottom{ background-color:#72B63F; color:#FFF}
+.Columns_top .administrator,
+.Columns_top .news{ background-color:#9DCA7B;}
+.breadcrumbs{background-color:#ffffff}
+.breadcrumbs .btn-default:hover{ background-color:#72B63F; color:#FFF}
+.breadcrumbs .btn-default:hover i{ color:#FFF}
+.menuUl .submenu.Border_line{ border-right:3px solid #72B63F; border-top:0px;}
+#breadcrumbs .breadcrumb li.active{ background-color:#ffffff;border-bottom:1px solid #ffffff; border-top:2px solid #72B63F}
+.Columns_top .administrator, .Columns_top .news {background-color: #3C7511;}
+.fa{ color: #72B63F}
+.menuUl li.open a .fa, 
+.menuUl li.open  a .arrow,
+.menuUl li.open  a span,
+.Columns_top .administrator >.glyph-icon{ color: #ffffff}
+.menuUl .submenu li a>[class*="fa-"]:first-child{background:#72B63F }
+.menuUl .submenu li:first-child>a{border-top: 1px solid #ffffff!important}
+.switch_style{border-bottom: 1px solid #dddddd;}
+.skin_select>.dropdown-menu{border-bottom: 1px solid #dddddd}
